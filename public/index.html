@@ -4,24 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Image Fetcher To Scale</title>
+    <style>
+        /* Add some basic styling to make the images fit nicely */
+        #imageContainer img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
     <h1>Random Image</h1>
     <button id="fetchImages">Fetch Images</button>
-    <!-- Buttin and the id is to trigger image fetch -->
+    <!-- Button to trigger image fetch -->
     <div id="imageContainer"></div>
-    <!-- container to display fetched images -->
+    <!-- Container to display fetched images -->
 
     <script>
         // Event listener for the 'Fetch Images' button
         document.getElementById('fetchImages').addEventListener('click', async () => {
-            const response = await fetch('/random-images?count=3'); // Make a request to the backend for 3 images
-            const images = await response.json(); // Parse the JSON response
-            const imageContainer = document.getElementById('imageContainer'); // Get the container element
-            // Display each image in the container
-            imageContainer.innerHTML = images.map(img => `<img src="${img}" alt="Random Image"/>`).join('');
+            try {
+                // Make a request to the backend for 3 images
+                const response = await fetch('/random-images?count=3');
+                
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                
+                // Parse the JSON response
+                const images = await response.json();
+                
+                // Get the container element
+                const imageContainer = document.getElementById('imageContainer');
+                
+                // Display each image in the container
+                imageContainer.innerHTML = images.map(img => `<img src="${img}" alt="Random Image"/>`).join('');
+            } catch (error) {
+                console.error('Error fetching images:', error);
+            }
         });
     </script>
-    
 </body>
 </html>

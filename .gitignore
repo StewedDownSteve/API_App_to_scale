@@ -1,0 +1,28 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Build artifacts
+dist/
+build/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE/editor configurations
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Local environment configurations
+npm-debug.log*
+yarn-error.log
