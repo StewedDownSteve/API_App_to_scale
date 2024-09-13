@@ -4,22 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Image Fetcher To Scale</title>
-    <style>
-        /* Add some basic styling to make the images fit nicely */
-        #imageContainer img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin-bottom: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
 <body>
-    <h1>Random Image</h1>
-    <button id="fetchImages">Fetch Images</button>
-    <!-- Button to trigger image fetch -->
-    <div id="imageContainer"></div>
-    <!-- Container to display fetched images -->
+    <div class="container mt-5"></div>
+        <h1 class="text-center">Random Image Fetcher</h1>
+        <p class="text-center">Click the button below to fetch random images.</p>
+        <div class="text-center">
+            <button id="fetchImages" class="btn btn-primary">Fetch Images</button>
+        </div>
+        <!-- added padding to the images aren't against the edge of window -->
+        <div id="imageContainer" class="mt-4 row justify-content-center px-3">
+            <!-- Images will be displayed here -->
+        </div>
+    </div>
 
     <script>
         // Event listener for the 'Fetch Images' button
@@ -39,7 +38,10 @@
                 const imageContainer = document.getElementById('imageContainer');
                 
                 // Display each image in the container
-                imageContainer.innerHTML = images.map(img => `<img src="${img}" alt="Random Image"/>`).join('');
+                imageContainer.innerHTML = images.map(img => 
+                `<div class="col-md-4 mb-4">
+                    <img src="${img}" class="img-fluid" alt="Random Image">
+                </div>`).join('');
             } catch (error) {
                 console.error('Error fetching images:', error);
             }
