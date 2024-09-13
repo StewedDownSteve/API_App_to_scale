@@ -9,6 +9,7 @@ localhost:3000
 
 The Random Image Fetcher is a simple application designed to fetch random images from an API. The project aims to explore and address real-world challenges related to handling multiple requests and optimizing performance. I wanted to work on a project that helps me learn about and improve how apps manage different performance challenges, particularly focusing on caching and handling concurrent requests.
 
+![img of UI](https://github.com/StewedDownSteve/API_App_to_scale/blob/main/API-App-Scale-BootS-SH.png)
 
 
 
